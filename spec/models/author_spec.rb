@@ -11,4 +11,11 @@ describe "a author", type: :model do
         expect(author.homepage).to eq('http://wikipedia.org/Alan_Turing')
         expect(author.name).to eq('Alan Turing')
     end
+    it "shouldn't exist without last name" do
+        author = Author.new()
+        author.first_name = "alan"
+        author.last_name = nil
+        author.homepage = "http://example.com"
+        expect(author).to_not be_valid
+    end
 end
