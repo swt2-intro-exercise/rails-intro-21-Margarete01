@@ -38,4 +38,11 @@ describe "a paper", type: :model do
     paper.year = "nineteen hundred and fifty"
     expect(paper).to_not be_valid
   end
+  it "should have an empty list of authors" do
+    paper = paper = Paper.new()
+    paper.title = "COMPUTING MACHINERY AND INTELLIGENCE"
+    paper.venue = "Mind 49: 433-460"
+    paper.year = 1950
+    expect(paper.authors).to match_array([])
+  end
 end

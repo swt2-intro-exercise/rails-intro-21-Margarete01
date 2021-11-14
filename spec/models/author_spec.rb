@@ -18,4 +18,11 @@ describe "a author", type: :model do
         author.homepage = "http://example.com"
         expect(author).to_not be_valid
     end
+    it "should have an empty list of papers" do
+        author = Author.new()
+        author.first_name = 'Alan'
+        author.last_name = 'Turing'
+        author.homepage = 'http://wikipedia.org/Alan_Turing'
+        expect(author.papers).to match_array([])
+    end
 end
